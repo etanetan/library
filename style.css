@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#container {
+    width: 80vw;
+    height: 75vh;
+    margin: 5vh auto auto auto;
+    border: 1px solid black;
+    display: inline-grid;
+    grid-template-columns: repeat(auto-fill, 25vw);
+    grid-template-rows: repeat(auto-fill, 35vh);
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2.5vw;
+}
+
+.items {
+    border: 2px solid blue;
+    border-radius: 50px;
+}
+
+#newBook {
+    height: 5vh;
+    width: 10vw;
+    background-color: black;
+    color: white;
+}
