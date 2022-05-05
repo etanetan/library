@@ -8,8 +8,25 @@
     <title>Library</title>
 </head>
 <body>
+    <div class="openBtn">
+        <button id="newBook" onclick="openForm()">New Book</button>
+    </div>
+    <div class="loginPopup">
+        <div class="bookForm" id="popupForm">
+            <form action="/action_page.php" class="formContainer">
+                <h2>Add New Book</h2>
+                <input type="text" id="title" placeholder="Title" name="title" required>
+                <input type="text" id="author" placeholder="Author" name="author" required>
+                <input type="number" id="pages" placeholder="Pages" name="pages" required>
+                <label for="read">Have you read it?</label>
+                <input type="checkbox" id="read" placeholder="read" name="read">
+                <button type="submit" class="btn" id="submit">Submit</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+    </div>
 
-    <button id="newBook">New Book</button>
+    <!-- <button id="newBook">New Book</button> -->
 
     <div id="container">
         <!--
@@ -22,6 +39,8 @@
     </div>
 
 
+
+    <div class="grayout" id="grayout"></div>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

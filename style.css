@@ -6,25 +6,105 @@ body {
 }
 #container {
     width: 80vw;
-    height: 75vh;
-    margin: 5vh auto auto auto;
-    border: 1px solid black;
-    display: inline-grid;
-    grid-template-columns: repeat(auto-fill, 25vw);
-    grid-template-rows: repeat(auto-fill, 35vh);
-    grid-auto-columns: 1fr;
-    grid-auto-rows: 1fr;
+    min-height: 80vh;
+    margin: 3vh auto auto auto;
+    display: grid;
+    grid-template: repeat(3,300px) / repeat(3,1fr);
+    grid-auto-rows: 300px;
     gap: 2.5vw;
 }
 
-.items {
-    border: 2px solid blue;
+#items {
+    background-color: whitesmoke;
     border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
+#items > * {
+    font-size: large;
+    color: black;
+}
 #newBook {
     height: 5vh;
     width: 10vw;
+    margin-top: 1rem;
     background-color: black;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
     color: white;
+}
+/* new book button is larger when hovering */
+#newBook:hover {
+    transform: scale(1.01);
+}
+
+
+/* selecting the whole page */
+.grayout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+/* gray out the background when the form is clicked */
+.grayout.active {
+    display: block;
+}
+/* styling for pop up form for user to enter book information */
+
+/*.loginPopup {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+*/
+.bookForm {
+    display: none;
+    position: absolute;
+    left: 45%;
+    top: 5%;
+    transform: translate(-50%, 5%);
+    border: 3px solid #999999;
+    z-index: 9;
+}
+.formContainer {
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+}
+.formContainer input[type=text],
+.formContainer input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 20px 0;
+    border: none;
+    background: #eee;
+}
+.formContainer input[type=text]:focus,
+.formContainer input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+.formContainer .btn {
+    padding: 12px 20px;
+    border: none;
+    background-color: darkseagreen;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+.formContainer .cancel {
+    background-color: indianred;
+}
+.formContainer .btn:hover,
+.openButton:hover {
+    opacity: 1;
 }
