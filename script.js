@@ -12,13 +12,19 @@ document.addEventListener('click', function (e) {
         e.target.classList.remove('notread');
         e.target.classList.add('read');
         e.target.innerHTML = 'Read';
-        save();
+        // change object attribute to true
+        myLibrary[parseInt(e.target.getAttribute('data-index'))].read = true;
+        // display changes
+        displayLibrary();
     // if book WAS read, make it not read
     } else if (e.target.classList.contains('read')) {
         e.target.classList.remove('read');
         e.target.classList.add('notread');
         e.target.innerHTML = 'Not Read';
-        save();
+        // change object attribute to false
+        myLibrary[parseInt(e.target.getAttribute('data-index'))].read = false;
+        // display changes
+        displayLibrary();
     // remove button removes book from library
     } else if (e.target.classList.contains('remove')) {
         myLibrary.splice(parseInt(e.target.getAttribute('data-index')), 1);
@@ -92,6 +98,8 @@ function displayLibrary() {
         const displayRead = document.createElement('button');
         // book is read
         displayRead.classList.add('read');
+        // set the index of the book in the library
+        displayRead.setAttribute('data-index', i);
         // decide whether the book has been read or not
         if(myLibrary[i].read) {
             displayRead.innerHTML = "Read";
