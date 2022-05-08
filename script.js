@@ -12,11 +12,13 @@ document.addEventListener('click', function (e) {
         e.target.classList.remove('notread');
         e.target.classList.add('read');
         e.target.innerHTML = 'Read';
+        save();
     // if book WAS read, make it not read
     } else if (e.target.classList.contains('read')) {
         e.target.classList.remove('read');
         e.target.classList.add('notread');
         e.target.innerHTML = 'Not Read';
+        save();
     // remove button removes book from library
     } else if (e.target.classList.contains('remove')) {
         myLibrary.splice(parseInt(e.target.getAttribute('data-index')), 1);
@@ -110,7 +112,7 @@ function displayLibrary() {
         displayBook.append(displayTitle, displayAuthor, displayPages, displayRead, displayRemove);
     }
     // save the library to local storage
-    localStorage.setItem("library", JSON.stringify(myLibrary));
+    save();
     resetForm();
 }
 // function to remove all nodes that are children of parent node
@@ -118,6 +120,10 @@ function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
+}
+function save() {
+    // save the library to local storage
+    localStorage.setItem("library", JSON.stringify(myLibrary));
 }
 // if there is data is local storage, retrieve it, otherwise leave library empty
 let books = JSON.parse(localStorage.getItem("library"));
