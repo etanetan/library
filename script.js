@@ -120,7 +120,8 @@ function removeAllChildNodes(parent) {
     }
 }
 // if there is data is local storage, retrieve it, otherwise leave library empty
-if(JSON.parse(localStorage.getItem("library"))) {
+let books = JSON.parse(localStorage.getItem("library"))
+if(books) {
     myLibrary = books;
 }
 // initial display of the library
