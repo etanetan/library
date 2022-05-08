@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 body {
+    font-family: 'Josefin Sans', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+button {
+    font-family: 'Josefin Sans', sans-serif;
 }
 #container {
     width: 80vw;
@@ -23,9 +29,28 @@ body {
     align-items: center;
 }
 #items > * {
-    font-size: large;
+    font-size: 24px;
     color: black;
+    width: 80%;
+    margin: 7px;
+    text-align: center;
 }
+#items > button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: lightgreen;
+    cursor: pointer;
+}
+/* make buttons darker when hovering */
+#items > button:hover, .notread:hover {
+    filter: brightness(0.92);
+}
+/* make the "not read" button red */
+#items > .notread {
+    background-color:rgba(255, 0, 0, 0.6);
+}
+/* position the new book button at the top and make it black with white text */
 #newBook {
     height: 5vh;
     width: 10vw;

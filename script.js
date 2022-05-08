@@ -5,7 +5,24 @@ const grayout = document.getElementById('grayout');
 
 // when the button is clicked, add the new book and reset the form
 submit.addEventListener('click', () => addBookToLibrary());
-
+// event listener to toggle read and not read
+document.addEventListener('click', function (e) {
+    // if book WAS not read, make it read
+    if (e.target.classList.contains('notread')) {
+        e.target.classList.remove('notread');
+        e.target.classList.add('read');
+        e.target.innerHTML = 'Read';
+    // if book WAS read, make it not read
+    } else if (e.target.classList.contains('read')) {
+        e.target.classList.remove('read');
+        e.target.classList.add('notread');
+        e.target.innerHTML = 'Not Read';
+    // remove button removes book from library
+    } else if (e.target.classList.contains('remove')) {
+        myLibrary.splice(parseInt(e.target.getAttribute('data-index')), 1);
+        displayLibrary();
+    }
+});
 // functions to open and close the form where users input book data
 function openForm() {
     document.getElementById("popupForm").style.display = "block";
@@ -30,6 +47,12 @@ function resetForm() {
 }
 // initialize the library
 let myLibrary = [];
+// add two test books
+let lotr = new Book("The Lord of the Rings", "J.R.R. Tolkien", 1069, false);
+let notw = new Book("The Name of the Wind", "Patrick Rothfuss", 582, true);
+
+myLibrary.push(lotr);
+myLibrary.push(notw);
 // constructor to make each book
 function Book(title, author, pages, read) {
     this.title = title;
@@ -70,26 +93,37 @@ function displayLibrary() {
         const displayPages = document.createElement('p');
         displayPages.innerHTML = (myLibrary[i].pages.toString()) + " pages";
 
-        const displayRead = document.createElement('p');
+        const displayRead = document.createElement('button');
+        displayRead.classList.add('read');
         // decide whether the book has been read or not
         if(myLibrary[i].read) {
             displayRead.innerHTML = "Read";
         }
         else {
+            displayRead.classList.add('notread');
             displayRead.innerHTML = "Not Read";
         }
+        // add remove button
+        const displayRemove = document.createElement('button');
+        displayRemove.innerHTML = "Remove";
+        displayRemove.style.backgroundColor = 'lightgray';
+        displayRemove.classList.add('remove');
+        // set the index of the book in the library
+        displayRemove.setAttribute('data-index', i);
         // add the information as children to the book being displayed
-        displayBook.append(displayTitle, displayAuthor, displayPages, displayRead);
+        displayBook.append(displayTitle, displayAuthor, displayPages, displayRead, displayRemove);
     }
     resetForm();
 }
-
+// function to remove all nodes that are children of parent node
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
-
+// save books on page reload
 window.onbeforeunload = function() {
     sessionStorage.setItem()
 }
+
+displayLibrary();
