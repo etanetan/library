@@ -47,12 +47,6 @@ function resetForm() {
 }
 // initialize the library
 let myLibrary = [];
-// add two test books
-let lotr = new Book("The Lord of the Rings", "J.R.R. Tolkien", 1069, false);
-let notw = new Book("The Name of the Wind", "Patrick Rothfuss", 582, true);
-
-myLibrary.push(lotr);
-myLibrary.push(notw);
 // constructor to make each book
 function Book(title, author, pages, read) {
     this.title = title;
@@ -94,12 +88,14 @@ function displayLibrary() {
         displayPages.innerHTML = (myLibrary[i].pages.toString()) + " pages";
 
         const displayRead = document.createElement('button');
+        // book is read
         displayRead.classList.add('read');
         // decide whether the book has been read or not
         if(myLibrary[i].read) {
             displayRead.innerHTML = "Read";
         }
         else {
+            // book is not read
             displayRead.classList.add('notread');
             displayRead.innerHTML = "Not Read";
         }
@@ -113,6 +109,8 @@ function displayLibrary() {
         // add the information as children to the book being displayed
         displayBook.append(displayTitle, displayAuthor, displayPages, displayRead, displayRemove);
     }
+    // save the library to local storage
+    localStorage.setItem("library", JSON.stringify(myLibrary));
     resetForm();
 }
 // function to remove all nodes that are children of parent node
@@ -121,9 +119,9 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
-// save books on page reload
-window.onbeforeunload = function() {
-    sessionStorage.setItem()
+// if there is data is local storage, retrieve it, otherwise leave library empty
+if(JSON.parse(localStorage.getItem("library"))) {
+    myLibrary = books;
 }
-
+// initial display of the library
 displayLibrary();
