@@ -28,6 +28,7 @@ button {
     justify-content: center;
     align-items: center;
 }
+/* all of the book properties have the same styling */
 #items > * {
     font-size: 24px;
     color: black;
@@ -35,6 +36,7 @@ button {
     margin: 7px;
     text-align: center;
 }
+/* the two buttons in the book have the same styling besides color */
 #items > button {
     padding: 12px;
     border: none;
@@ -66,8 +68,8 @@ button {
     transform: scale(1.01);
 }
 
-
-/* selecting the whole page */
+/* selecting the whole page to have 
+darker background when form is displayed */
 .grayout {
     position: fixed;
     top: 0;
@@ -89,46 +91,62 @@ button {
     width: 100%;
 }
 */
+
+/* form that pops up when "new book" is clicked */
 .bookForm {
     display: none;
     position: absolute;
-    left: 45%;
-    top: 5%;
-    transform: translate(-50%, 5%);
-    border: 3px solid #999999;
-    z-index: 9;
+    left: 38.5%;
+    top: 25%;
+    border: none;
 }
 .formContainer {
     max-width: 300px;
     padding: 20px;
-    background-color: #fff;
+    border-radius: 50px;
+    background-color: white;
+}
+.formContainer h2 {
+    text-align: center;
+    font-weight: 900;
 }
 .formContainer input[type=text],
-.formContainer input[type=password] {
-    width: 100%;
+.formContainer input[type=password],
+.formContainer input[type=number] {
+    width: 80%;
     padding: 15px;
-    margin: 5px 0 20px 0;
+    margin: 5px 0 20px 12px;
     border: none;
     background: #eee;
+    border-radius: 10px;
 }
+/* make background darker when mouse clicks input section */
 .formContainer input[type=text]:focus,
-.formContainer input[type=password]:focus {
+.formContainer input[type=password]:focus,
+.formContainer input[type=number]:focus {
     background-color: #ddd;
     outline: none;
 }
+.formContainer > label {
+    font-size: 1.5rem;
+}
+/* style the submit and close buttons */
 .formContainer .btn {
     padding: 12px 20px;
     border: none;
+    border-radius: 10px;
     background-color: darkseagreen;
-    color: #fff;
+    color: white;
     cursor: pointer;
     width: 100%;
     margin-bottom: 15px;
-    opacity: 0.8;
+    font-size: 1.2rem;
 }
+/* change the color of the close button */
 .formContainer .cancel {
     background-color: indianred;
 }
+/* make form buttons darker when hovering over them */
 .formContainer .btn:hover,
 .openButton:hover {
     opacity: 1;
