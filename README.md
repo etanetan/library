@@ -1,6 +1,6 @@
 # Library
 
-<img width="1440" alt="librarypic" src="https://user-images.githubusercontent.com/56983817/167313826-e85e04b1-66a1-4fc9-b50e-2c5ac23b8cad.png">
+<img width="1440" alt="librarypic" src="https://user-images.githubusercontent.com/56983817/167324885-87147e2e-6898-4463-ba66-504fe7535fa9.png">
 
 <a href="http://etanetan.github.io/library/">Live Demo</a>
 
