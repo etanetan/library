@@ -6,10 +6,13 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    --red: rgba(255, 0, 0, 0.6);
+    --green: lightgreen;
 }
 button {
     font-family: 'Josefin Sans', sans-serif;
 }
+/* container to hold all of the book cards, using grid template */
 #container {
     width: 80vw;
     min-height: 80vh;
@@ -19,7 +22,7 @@ button {
     grid-auto-rows: 300px;
     gap: 2.5vw;
 }
-
+/* the individual cards stand out from the rest of the page and are laid out in rows */
 #items {
     background-color: whitesmoke;
     border-radius: 50px;
@@ -41,16 +44,16 @@ button {
     padding: 12px;
     border: none;
     border-radius: 10px;
-    background-color: lightgreen;
+    background-color: var(--green);
     cursor: pointer;
 }
-/* make buttons darker when hovering */
-#items > button:hover, .notread:hover {
+/* make all buttons darker when hovering */
+#items > button:hover, .notread:hover, .formContainer .btn:hover {
     filter: brightness(0.92);
 }
 /* make the "not read" button red */
 #items > .notread {
-    background-color:rgba(255, 0, 0, 0.6);
+    background-color: var(--red);
 }
 /* position the new book button at the top and make it black with white text */
 #newBook {
@@ -83,15 +86,6 @@ darker background when form is displayed */
 .grayout.active {
     display: block;
 }
-/* styling for pop up form for user to enter book information */
-
-/*.loginPopup {
-    position: relative;
-    text-align: center;
-    width: 100%;
-}
-*/
-
 /* form that pops up when "new book" is clicked */
 .bookForm {
     display: none;
@@ -100,19 +94,23 @@ darker background when form is displayed */
     top: 25%;
     border: none;
 }
+/* styling the form itself */
 .formContainer {
     max-width: 300px;
     padding: 20px;
     border-radius: 50px;
     background-color: white;
 }
+/* center the header for the form and make font larger */
 .formContainer h2 {
     text-align: center;
-    font-weight: 900;
 }
+/* styling the regular input fields where user types in */
 .formContainer input[type=text],
 .formContainer input[type=password],
 .formContainer input[type=number] {
+    font-size: 1rem;
+    font-weight: 600;
     width: 80%;
     padding: 15px;
     margin: 5px 0 20px 12px;
@@ -127,27 +125,28 @@ darker background when form is displayed */
     background-color: #ddd;
     outline: none;
 }
-.formContainer > label {
-    font-size: 1.5rem;
+/* style the checkbox and its label, make a flex container for them */
+.readcontainer {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 10px 0 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 /* style the submit and close buttons */
 .formContainer .btn {
     padding: 12px 20px;
     border: none;
     border-radius: 10px;
-    background-color: darkseagreen;
-    color: white;
+    background-color: var(--green);
+    color: black;
     cursor: pointer;
     width: 100%;
-    margin-bottom: 15px;
+    margin: 10px 0px 15px 0px;
     font-size: 1.2rem;
 }
 /* change the color of the close button */
 .formContainer .cancel {
-    background-color: indianred;
-}
-/* make form buttons darker when hovering over them */
-.formContainer .btn:hover,
-.openButton:hover {
-    opacity: 1;
+    background-color: var(--red);
 }

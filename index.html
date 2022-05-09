@@ -23,8 +23,10 @@
                 <input type="text" id="title" placeholder="Title" name="title" required>
                 <input type="text" id="author" placeholder="Author" name="author" required>
                 <input type="number" id="pages" placeholder="Pages" name="pages" required>
-                <label for="read">Have you read it?</label>
-                <input type="checkbox" id="read" placeholder="read" name="read">
+                <div class="readcontainer">
+                    <label for="read">Have you read it?</label>
+                    <input type="checkbox" id="read" placeholder="read" name="read">
+                </div>
                 <button type="submit" class="btn" id="submit">Submit</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
