@@ -112,7 +112,6 @@ function displayLibrary() {
         // add remove button
         const displayRemove = document.createElement('button');
         displayRemove.innerHTML = "Remove";
-        displayRemove.style.backgroundColor = 'lightgray';
         displayRemove.classList.add('remove');
         // set the index of the book in the library
         displayRemove.setAttribute('data-index', i);

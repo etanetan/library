@@ -55,16 +55,21 @@ button {
 #items > .notread {
     background-color: var(--red);
 }
+/* styling remove button */
+#items > .remove {
+    background-color: lightgray;
+}
 /* position the new book button at the top and make it black with white text */
 #newBook {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    background-color: whitesmoke;
     height: 5vh;
     width: 10vw;
     margin-top: 1rem;
-    background-color: black;
     border: none;
     border-radius: 50px;
-    font-weight: 700;
-    color: white;
 }
 /* new book button is larger when hovering */
 #newBook:hover {
